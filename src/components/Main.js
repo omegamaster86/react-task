@@ -4,9 +4,9 @@ import dummyData from "../dummyData";
 import Card from "./Card";
 
 const Main = () => {
-  const [data, setData] = useState(dummyData);
-  const onDragEnd = (result) => {
-    const {source, destination } = result;
+const [data, setData] = useState(dummyData);
+const onDragEnd = (result) => {
+const {source, destination } = result;
 
     //別のカラムに移動した時
     if(source.droppableId !== destination.droppableId) {
@@ -57,14 +57,14 @@ const Main = () => {
     data[sourceColIndex].tasks = sourceTask;
     setData(data);
 };
-  return (<DragDropContext onDragEnd={onDragEnd}>
+return (<DragDropContext onDragEnd={onDragEnd}>
             <div className="trello">
                 {data.map((Section) => (
                     <Droppable key={Section.id} droppableId={Section.id}>
                         {(provided) => (
                         <div className="trello-section" 
-                             ref={provided.innerRef}
-                             {...provided.droppableProps}
+                            ref={provided.innerRef}
+                            {...provided.droppableProps}
                         >
                             <div className="trello-section-title">{Section.title}</div>
                             <div className="trello-section-content">
@@ -96,8 +96,8 @@ const Main = () => {
                     </Droppable>
                 ))}
             </div>
-          </DragDropContext>
-  );
+        </DragDropContext>
+);
 };
 
 export default Main;
